@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">onCreate() Essential</string>
+    <string name="hands_on">Hands-On Session</string>
+    <string name="weekly_challenge">Weekly Challenge</string>
+    <string name="mothly_appathon">Monthly Appathon</string>
+
+</resources>
