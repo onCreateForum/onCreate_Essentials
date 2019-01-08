@@ -2,9 +2,15 @@ package com.example.mrinalmriyo.homedemo;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
+/**
+ * Splash screen
+ *
+ * Designed and built by Priti and Mrinal
+ */
 
 public class Launch extends AppCompatActivity {
 

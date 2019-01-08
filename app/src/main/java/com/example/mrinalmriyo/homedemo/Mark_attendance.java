@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -37,12 +37,14 @@ import java.util.Date;
 
 public class Mark_attendance extends AppCompatActivity {
 
+    final String TAG = "OC_MarkAttendance";
     DatabaseReference local_DBR;
     Button mark_as_present;
     TextView isOn;
     String UID;
     String formattedDate;
     int isOnline=0;
+    String name = "";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,11 @@ public class Mark_attendance extends AppCompatActivity {
 
         Intent in = getIntent();
         UID = in.getStringExtra("uid");
+        Log.d(TAG,"UID: "+UID);
+
+        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+        name = wifiInfo.getSSID().replace("\"","");
 
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         formattedDate = df.format(c);
@@ -86,18 +93,17 @@ public class Mark_attendance extends AppCompatActivity {
     }
 
     private void markPresent(){
-        WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
-        final String name = wifiInfo.getSSID();
+
+        Log.d(TAG,"WiFi name:"+name );
 
         local_DBR.child("Attendance_Register").child(formattedDate).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if(!dataSnapshot.hasChild(UID) && name == "OC101"){
+                if(name.toUpperCase().equals("OC101")){
                     local_DBR.child("Attendance_Register").child(formattedDate).child(UID).setValue("present");
                     Toast.makeText(Mark_attendance.this,"Attendance successfully marked",Toast.LENGTH_LONG).show();
-                }else if(name != "OC101"){
+                }else if(!name.toUpperCase().equals("OC101")){
                     Toast.makeText(Mark_attendance.this,"Connect to OC101 to mark your attendacnce",Toast.LENGTH_LONG).show();
                 }
                 else {

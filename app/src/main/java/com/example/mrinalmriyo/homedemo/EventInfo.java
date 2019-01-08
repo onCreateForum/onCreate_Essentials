@@ -5,9 +5,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -21,6 +20,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * To be implemented in future
+ *
+ * Built by Mrinal and Priti.
+ */
 public class EventInfo extends AppCompatActivity {
 
     Intent intent;

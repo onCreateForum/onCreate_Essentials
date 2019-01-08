@@ -1412,10 +1412,6 @@
         "source": "C:\\Users\\AndroidDev\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\59780909ca148273d45080a322a96070\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "D:\\onCreate()\\Android Projects\\HomeDemo\\app\\build\\intermediates\\res\\merged\\debug\\menu_additional_ops_menu.xml.flat",
-        "source": "D:\\onCreate()\\Android Projects\\HomeDemo\\app\\src\\main\\res\\menu\\additional_ops_menu.xml"
-    },
-    {
         "merged": "D:\\onCreate()\\Android Projects\\HomeDemo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "C:\\Users\\AndroidDev\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\59780909ca148273d45080a322a96070\\res\\drawable-mdpi-v4\\abc_list_focused_holo.9.png"
     },

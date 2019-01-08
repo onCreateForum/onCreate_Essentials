@@ -2,16 +2,15 @@ package com.example.mrinalmriyo.homedemo;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -26,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 /**
  * Built by Mrinal and Priti
- * Firebase integration and sign-in by Irfan
+ * Firebase integration and sign-in by Irfan S
  *
  * Main page of onCreate Essentials, launches Database,Feedback , Sessions ,AttendanceFirstPage and Mark_Attendance.
  *

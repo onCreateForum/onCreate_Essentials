@@ -2,7 +2,6 @@ package com.example.mrinalmriyo.homedemo.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,14 +11,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.example.mrinalmriyo.homedemo.R;
-
 
 import java.util.ArrayList;
 
 public class ListViewFragment extends DialogFragment {
+
+    /**
+     * This displays the member details for the admin attendance page.
+     *
+     * Built by Irfan S
+     */
+
     Button btn;
     ListView lv;
     SearchView sv;
@@ -34,9 +38,9 @@ public class ListViewFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         View rootView=inflater.inflate(R.layout.fragment_layout, null);
-        lv=(ListView) rootView.findViewById(R.id.listView1);
-        sv=(SearchView) rootView.findViewById(R.id.searchView1);
-        btn=(Button) rootView.findViewById(R.id.dismiss);
+        lv= rootView.findViewById(R.id.listView1);
+        sv= rootView.findViewById(R.id.searchView1);
+        btn= rootView.findViewById(R.id.dismiss);
 
         date_txt = getArguments().getString("date");
         //SET TITLE DIALOG TITLE

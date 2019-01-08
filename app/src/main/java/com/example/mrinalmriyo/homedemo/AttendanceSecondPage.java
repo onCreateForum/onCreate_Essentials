@@ -2,11 +2,11 @@ package com.example.mrinalmriyo.homedemo;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,9 +22,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * Displays member list for the sessions conducted so far. Only for admins. Links to the Attendance_Register node in Firebase
+ * Uses the custom ListViewFragment to display member details.
+ *
+ * Built by Irfan S
+ *
+ */
 public class AttendanceSecondPage extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-    //TODO change this activity to display attendance data from firebase
+
 
     ListView listView;
     private final String TAG = "Attendance2Page_OCE";
@@ -44,7 +51,7 @@ public class AttendanceSecondPage extends AppCompatActivity implements AdapterVi
         Intent t = getIntent();
         UID = t.getStringExtra("uid");
 
-        listView = (ListView) findViewById(R.id.membersAttendedListView);
+        listView = findViewById(R.id.membersAttendedListView);
 
         loc.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

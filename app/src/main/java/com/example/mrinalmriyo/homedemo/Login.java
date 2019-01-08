@@ -7,17 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
@@ -41,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
  * Built by Irfan
  *
  * Login and Security page for the app, allows user to sign-in based on existing credentials.
- *
+ * Manages user auth and allows new users to sign up. Hub for all security activities.
  *
  */
 
@@ -175,7 +169,6 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful()) {
 
                             hideProgressDialog();
-                            Toast.makeText(Login.this,"Signed in as : "+task.getResult().getUser().getDisplayName(),Toast.LENGTH_SHORT).show();
                             final FirebaseUser user = mAuth.getCurrentUser();
                             //Replacing invalid chars for database addition
                             final String raw_email = user.getEmail();
@@ -184,7 +177,7 @@ public class Login extends AppCompatActivity {
                             final String email = user.getEmail().replaceAll("[.,#_$]","!");
                             newUser = task.getResult().getAdditionalUserInfo().isNewUser();
                             if (newUser) {
-                                Intent in = new Intent(Login.this,Temp_OCID_input.class);
+                                Intent in = new Intent(Login.this,NewMemberSignUp.class);
                                 in.putExtra("user_email",raw_email);
                                 in.putExtra("regex_email",email);
                                 in.putExtra("name",name);
@@ -195,6 +188,7 @@ public class Login extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         if(dataSnapshot.child("Member_List").hasChild(email)) {
+                                            Toast.makeText(Login.this,"Signed in as : "+task.getResult().getUser().getDisplayName(),Toast.LENGTH_SHORT).show();
 
                                             String OC_UID = dataSnapshot.child("Member_List").child(email).child("UID").getValue(String.class);
                                             Log.d(TAG, "User found in DB , UID: " + OC_UID);
@@ -205,10 +199,10 @@ public class Login extends AppCompatActivity {
                                             startActivity(in);
                                             finish();
                                         }else{
-                                            Toast.makeText(Login.this,"Details not found, please check your account details",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(Login.this,"Details not found, please log in again.",Toast.LENGTH_LONG).show();
                                             user.delete();
                                             showUI();
-                                            Log.d(TAG,"User deleted from database due to incosistent details");
+                                            Log.d(TAG,"User deleted from database due to inconsistent details");
                                         }
                                     }
 

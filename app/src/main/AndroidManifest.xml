@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".MemberManagement"/>
         <activity android:name=".Login"/>
-        <activity android:name=".Temp_OCID_input"/>
+        <activity android:name=".NewMemberSignUp"/>
         <activity android:name=".Mark_attendance"/>
         <activity
             android:name=".Sessions"
