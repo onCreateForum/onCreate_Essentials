@@ -178,9 +178,11 @@ public class Login extends AppCompatActivity {
                             newUser = task.getResult().getAdditionalUserInfo().isNewUser();
                             if (newUser) {
                                 Intent in = new Intent(Login.this,NewMemberSignUp.class);
+
                                 in.putExtra("user_email",raw_email);
                                 in.putExtra("regex_email",email);
                                 in.putExtra("name",name);
+
                                 startActivity(in);
                                 finish();
                             } else {
@@ -193,9 +195,12 @@ public class Login extends AppCompatActivity {
                                             String OC_UID = dataSnapshot.child("Member_List").child(email).child("UID").getValue(String.class);
                                             Log.d(TAG, "User found in DB , UID: " + OC_UID);
                                             Intent in = new Intent(Login.this, Home.class);
+
                                             in.putExtra("user_email", raw_email);
                                             in.putExtra("user_uid", OC_UID);
                                             in.putExtra("pic_url", raw_pic_url);
+                                            in.putExtra("name",name);
+
                                             startActivity(in);
                                             finish();
                                         }else{

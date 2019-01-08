@@ -1,9 +1,12 @@
 package com.example.mrinalmriyo.homedemo;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -35,10 +38,14 @@ import com.google.firebase.database.ValueEventListener;
 public class Home extends AppCompatActivity {
 
     GoogleApiClient mGoogleApiClient;
+
     String UID;
     String email_raw;
     String pic_url;
+    String name;
     final String TAG = "Home_OCE";
+
+
     CardView attendance;
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -55,6 +62,26 @@ public class Home extends AppCompatActivity {
                 Auth.GoogleSignInApi.signOut(mGoogleApiClient);
                 startActivity(new Intent(this, Login.class));
                 finish();
+                break;
+
+            case R.id.myaccount:
+                AlertDialog.Builder builder;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    //TODO change this display, can be put into another activity if you want to.
+                    builder = new AlertDialog.Builder(Home.this, android.R.style.Theme_Material_Dialog);
+                } else {
+                    builder = new AlertDialog.Builder(Home.this);
+                }
+                builder.setTitle("Details")
+                        .setMessage("Name: "+name+"\n"+"UID: "+UID+"\n"+"Email: "+email_raw)
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // do nothing
+                                dialog.dismiss();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
         }
         return true;
@@ -106,6 +133,8 @@ public class Home extends AppCompatActivity {
         UID = in.getStringExtra("user_uid");
         email_raw = in.getStringExtra("user_email");
         pic_url = in.getStringExtra("pic_url");
+        name = in.getStringExtra("name");
+
         Log.d(TAG,"User email: "+email_raw+" User UID : "+UID);
 
         DatabaseReference loc= FirebaseDatabase.getInstance().getReference();

@@ -908,6 +908,9 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
+id textView2
+id textView3
 id time
 id title
 id titleDividerNoCustom
@@ -969,6 +972,7 @@ layout activity_sessions
 layout enter_creds
 layout fragment_add_new_member_dialog
 layout fragment_layout
+layout fragment_myaccount
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
