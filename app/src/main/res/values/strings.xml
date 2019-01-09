@@ -19,5 +19,6 @@
     <string name="Semester_Firebase_NodeKey">Semester</string>
     <string name="Stream_Firebase_NodeKey">Stream</string>
     <string name="Mobile_Firebase_NodeKey">Mobile</string>
+    <string name="whatsapp_chat_url">https://chat.whatsapp.com/DOFMtSoZ1lxL8dXzZDdqrn</string>
 
 </resources>

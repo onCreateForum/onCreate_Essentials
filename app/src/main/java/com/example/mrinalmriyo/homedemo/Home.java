@@ -87,7 +87,7 @@ public class Home extends AppCompatActivity {
                         .show();
                 break;
             case R.id.whatsapp:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://chat.whatsapp.com/DOFMtSoZ1lxL8dXzZDdqrn"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.whatsapp_chat_url)));
                 startActivity(browserIntent);
 
 
