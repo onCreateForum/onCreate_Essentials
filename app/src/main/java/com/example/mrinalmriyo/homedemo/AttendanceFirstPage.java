@@ -27,7 +27,7 @@ public class AttendanceFirstPage extends AppCompatActivity {
      * Built by Irfan S
      */
 
-    TextView attendace;
+    TextView attendance;
     TextView registration_status;
     final String TAG = "A1P_tag";
     String UID;
@@ -40,15 +40,15 @@ public class AttendanceFirstPage extends AppCompatActivity {
     public void viewList(View view)
     {
         Intent intent=new Intent(this, AttendanceSecondPage.class);
-        intent.putExtra("uid",UID);
+        intent.putExtra(getString(R.string.user_uid_intentkey),UID);
         startActivity(intent);
     }
 
     public void manageRegistrations(View view){
-        if (isOpen==false){
-            loc.child("Admin_List").child("membership_open").setValue(true);
+        if (!isOpen){
+            loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.Membership_open_Firebase_NodeKey)).setValue(true);
         }else{
-            loc.child("Admin_List").child("membership_open").setValue(false);
+            loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.Membership_open_Firebase_NodeKey)).setValue(false);
         }
        // updateUI();
     }
@@ -66,7 +66,7 @@ public class AttendanceFirstPage extends AppCompatActivity {
 
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         loc = FirebaseDatabase.getInstance().getReference();
-        loc.child("Admin_List").child("online").setValue(1);
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(true);
 
 
 
@@ -86,24 +86,24 @@ public class AttendanceFirstPage extends AppCompatActivity {
                 .build();
 
         registration_status = findViewById(R.id.reg_status_disp);
-        attendace = findViewById(R.id.attendance_disp);
+        attendance = findViewById(R.id.attendance_disp);
 
         Intent in = getIntent();
-        UID = in.getStringExtra("uid");
+        UID = in.getStringExtra(getString(R.string.user_uid_intentkey));
         Log.d(TAG,"UID : "+UID);
 
-        loc.child("Admin_List").child("online").onDisconnect().setValue(false);
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).onDisconnect().setValue(false);
 
-        loc.child("Admin_List").addValueEventListener(new ValueEventListener() {
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                isOpen = dataSnapshot.child("membership_open").getValue(Boolean.class);
+                isOpen = dataSnapshot.child(getString(R.string.Membership_open_Firebase_NodeKey)).getValue(Boolean.class);
 
 
-                if(dataSnapshot.child("online").getValue(Integer.class)==1){
-                    attendace.setText("Attendance marking is live, set your hotspot to OC101");
+                if(dataSnapshot.child(getString(R.string.online_Firebase_NodeKey)).getValue(Boolean.class)){
+                    attendance.setText("Attendance marking is live, set your hotspot to OC101");
                 }else{
-                    attendace.setText("Attendance not live");
+                    attendance.setText("Attendance not live");
                 }
                 updateUI();
             }
@@ -127,13 +127,13 @@ public class AttendanceFirstPage extends AppCompatActivity {
     @Override
     protected void onPause(){
         super.onPause();
-        loc.child("Admin_List").child("online").setValue(0);
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(0);
         finish();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        loc.child("Admin_List").child("online").setValue(0);
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(0);
     }
 }

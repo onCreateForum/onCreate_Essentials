@@ -3,5 +3,21 @@
     <string name="hands_on">Hands-On Session</string>
     <string name="weekly_challenge">Weekly Challenge</string>
     <string name="mothly_appathon">Monthly Appathon</string>
+    <string name="user_uid_intentkey">user_uid</string>
+    <string name="user_email_intentkey">user_email</string>
+    <string name="pic_url_intentkey">pic_url</string>
+    <string name="name_intentkey">name</string>
+    <string name="Admin_List_Firebase_NodeKey">Admin_List</string>
+    <string name="regex_email_intentkey">regex_email</string>
+    <string name="Member_List_Firebase_NodeKey">Member_List</string>
+    <string name="uid_Firebase_NodeKey">UID</string>
+    <string name="Membership_open_Firebase_NodeKey">membership_open</string>
+    <string name="online_Firebase_NodeKey">online</string>
+    <string name="Attendance_Register_Firebase_NodeKey">Attendance_Register</string>
+    <string name="Name_Firebase_NodeKey">Name</string>
+    <string name="Email_Firebase_NodeKey">Email</string>
+    <string name="Semester_Firebase_NodeKey">Semester</string>
+    <string name="Stream_Firebase_NodeKey">Stream</string>
+    <string name="Mobile_Firebase_NodeKey">Mobile</string>
 
 </resources>

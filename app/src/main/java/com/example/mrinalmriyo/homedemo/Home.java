@@ -3,6 +3,7 @@ package com.example.mrinalmriyo.homedemo;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -43,6 +44,9 @@ public class Home extends AppCompatActivity {
     String email_raw;
     String pic_url;
     String name;
+    String email_regex;
+    long mob_num = 0;
+
     final String TAG = "Home_OCE";
 
 
@@ -73,15 +77,19 @@ public class Home extends AppCompatActivity {
                     builder = new AlertDialog.Builder(Home.this);
                 }
                 builder.setTitle("Details")
-                        .setMessage("Name: "+name+"\n"+"UID: "+UID+"\n"+"Email: "+email_raw)
+                        .setMessage("Name: "+name+"\n"+"UID: "+UID+"\n"+"Email: "+email_raw+"\n"+"Mobile: "+mob_num)
                         .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 // do nothing
                                 dialog.dismiss();
                             }
                         })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
+                break;
+            case R.id.whatsapp:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://chat.whatsapp.com/DOFMtSoZ1lxL8dXzZDdqrn"));
+                startActivity(browserIntent);
+
 
         }
         return true;
@@ -130,10 +138,11 @@ public class Home extends AppCompatActivity {
 
         //TODO clean-up unused data.
 
-        UID = in.getStringExtra("user_uid");
-        email_raw = in.getStringExtra("user_email");
-        pic_url = in.getStringExtra("pic_url");
-        name = in.getStringExtra("name");
+        UID = in.getStringExtra(getString(R.string.user_uid_intentkey));
+        email_raw = in.getStringExtra(getString(R.string.user_email_intentkey));
+        pic_url = in.getStringExtra(getString(R.string.pic_url_intentkey));
+        name = in.getStringExtra(getString(R.string.name_intentkey));
+        email_regex = in.getStringExtra(getString(R.string.regex_email_intentkey));
 
         Log.d(TAG,"User email: "+email_raw+" User UID : "+UID);
 
@@ -141,17 +150,18 @@ public class Home extends AppCompatActivity {
         loc.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+                mob_num = dataSnapshot.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_regex).child(getString(R.string.Mobile_Firebase_NodeKey)).getValue(Long.class);
                 attendance.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(dataSnapshot.child("Admin_List").hasChild(UID)) {
+                        if(dataSnapshot.child(getString(R.string.Admin_List_Firebase_NodeKey)).hasChild(UID)) {
 
                             Intent intent = new Intent(Home.this, AttendanceFirstPage.class);
-                            intent.putExtra("uid",UID);
+                            intent.putExtra(getString(R.string.user_uid_intentkey),UID);
                             startActivity(intent);
                         }else{
                             Intent intent = new Intent(Home.this,Mark_attendance.class);
-                            intent.putExtra("uid",UID);
+                            intent.putExtra(getString(R.string.user_uid_intentkey),UID);
                             startActivity(intent);
                             //Toast.makeText(Home.this,"Admin only feature",Toast.LENGTH_LONG).show();
                         }

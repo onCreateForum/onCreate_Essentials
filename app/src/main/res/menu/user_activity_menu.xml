@@ -8,4 +8,7 @@
     <item
         android:id="@+id/myaccount"
         android:title="My Account" />
+    <item
+        android:id="@+id/whatsapp"
+        android:title="Join us on WhatsApp!" />
 </menu>

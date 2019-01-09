@@ -40,7 +40,7 @@ public class Database extends AppCompatActivity implements AdapterView.OnItemCli
     ArrayAdapter<String> arrayAdapter;
     TextView messageTextView;
     ProgressDialog mProgressDialog;
-    DatabaseReference loc = FirebaseDatabase.getInstance().getReference("Member_List");
+    DatabaseReference loc ;
 
     private boolean isNetworkConnected() {
 
@@ -54,6 +54,7 @@ public class Database extends AppCompatActivity implements AdapterView.OnItemCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_database);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         getIntent();
 
@@ -72,13 +73,14 @@ public class Database extends AppCompatActivity implements AdapterView.OnItemCli
         }
         else {
             showProgressDialog();
+            loc  = FirebaseDatabase.getInstance().getReference(getString(R.string.Member_List_Firebase_NodeKey));
             loc.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {
                         Log.d(TAG,"Adding "+ ds.getKey()+" to adapter");
-                        memberIDs.add(ds.child("UID").getValue(String.class));
-                        Log.d(TAG,"UID: "+ds.child("UID").getValue(String.class));
+                        memberIDs.add(ds.child(getString(R.string.uid_Firebase_NodeKey)).getValue(String.class));
+                        Log.d(TAG,"UID: "+ds.child(getString(R.string.uid_Firebase_NodeKey)).getValue(String.class));
                     }
                     arrayAdapter = new ArrayAdapter(Database.this, android.R.layout.simple_list_item_1, memberIDs);
                     membersListView.setAdapter(arrayAdapter);
@@ -126,10 +128,10 @@ public class Database extends AppCompatActivity implements AdapterView.OnItemCli
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         final String UID = memberIDs.get(i);
-        final FragmentManager fm=getSupportFragmentManager();
+        //final FragmentManager fm=getSupportFragmentManager();
 
         Log.d(TAG,"User UID selected: "+UID);
-        DatabaseReference calc = FirebaseDatabase.getInstance().getReference("Attendance_Register");
+        DatabaseReference calc = FirebaseDatabase.getInstance().getReference(getString(R.string.Attendance_Register_Firebase_NodeKey));
         calc.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

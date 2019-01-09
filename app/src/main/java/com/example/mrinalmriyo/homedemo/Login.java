@@ -124,7 +124,7 @@ public class Login extends AppCompatActivity {
         if (opr.isDone()) {
             // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
             // and the GoogleSignInResult will be available instantly.
-            Log.d(TAG, "Got cached sign-in");
+            Log.d(TAG, "Cached sign-in found, checking validity..");
             GoogleSignInResult result = opr.get();
             GoogleSignInAccount account = result.getSignInAccount();
             firebaseAuthWithGoogle(account);
@@ -179,9 +179,9 @@ public class Login extends AppCompatActivity {
                             if (newUser) {
                                 Intent in = new Intent(Login.this,NewMemberSignUp.class);
 
-                                in.putExtra("user_email",raw_email);
-                                in.putExtra("regex_email",email);
-                                in.putExtra("name",name);
+                                in.putExtra(getString(R.string.user_email_intentkey),raw_email);
+                                in.putExtra(getString(R.string.regex_email_intentkey),email);
+                                in.putExtra(getString(R.string.name_intentkey),name);
 
                                 startActivity(in);
                                 finish();
@@ -189,17 +189,18 @@ public class Login extends AppCompatActivity {
                                 local_DBR.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                        if(dataSnapshot.child("Member_List").hasChild(email)) {
+                                        if(dataSnapshot.child(getString(R.string.Member_List_Firebase_NodeKey)).hasChild(email)) {
                                             Toast.makeText(Login.this,"Signed in as : "+task.getResult().getUser().getDisplayName(),Toast.LENGTH_SHORT).show();
 
-                                            String OC_UID = dataSnapshot.child("Member_List").child(email).child("UID").getValue(String.class);
+                                            String OC_UID = dataSnapshot.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email).child(getString(R.string.uid_Firebase_NodeKey)).getValue(String.class);
                                             Log.d(TAG, "User found in DB , UID: " + OC_UID);
                                             Intent in = new Intent(Login.this, Home.class);
 
-                                            in.putExtra("user_email", raw_email);
-                                            in.putExtra("user_uid", OC_UID);
-                                            in.putExtra("pic_url", raw_pic_url);
-                                            in.putExtra("name",name);
+                                            in.putExtra(getString(R.string.user_email_intentkey), raw_email);
+                                            in.putExtra(getString(R.string.user_uid_intentkey), OC_UID);
+                                            in.putExtra(getString(R.string.pic_url_intentkey), raw_pic_url);
+                                            in.putExtra(getString(R.string.name_intentkey),name);
+                                            in.putExtra(getString(R.string.regex_email_intentkey),email);
 
                                             startActivity(in);
                                             finish();

@@ -37,7 +37,7 @@ public class AttendanceSecondPage extends AppCompatActivity implements AdapterVi
     private final String TAG = "Attendance2Page_OCE";
     String UID;
     ArrayList<String> dates = new ArrayList<>();
-    DatabaseReference loc = FirebaseDatabase.getInstance().getReference("Attendance_Register");
+    DatabaseReference loc = FirebaseDatabase.getInstance().getReference(getString(R.string.Attendance_Register_Firebase_NodeKey));
     ArrayAdapter arrayAdapter;
     ArrayList<String> IDs = new ArrayList<>();
 
@@ -49,7 +49,7 @@ public class AttendanceSecondPage extends AppCompatActivity implements AdapterVi
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Intent t = getIntent();
-        UID = t.getStringExtra("uid");
+        UID = t.getStringExtra(getString(R.string.user_uid_intentkey));
 
         listView = findViewById(R.id.membersAttendedListView);
 

@@ -43,7 +43,7 @@ public class Mark_attendance extends AppCompatActivity {
     TextView isOn;
     String UID;
     String formattedDate;
-    int isOnline=0;
+    boolean isOnline=false;
     String name = "";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class Mark_attendance extends AppCompatActivity {
         System.out.println("Current time => " + c);
 
         Intent in = getIntent();
-        UID = in.getStringExtra("uid");
+        UID = in.getStringExtra(getString(R.string.user_uid_intentkey));
         Log.d(TAG,"UID: "+UID);
 
         WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
@@ -71,7 +71,7 @@ public class Mark_attendance extends AppCompatActivity {
         mark_as_present.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isOnline==1){
+                if(isOnline){
                     markPresent();
                 }else{
                     Toast.makeText(Mark_attendance.this,"Attendance marking not live , pls wait ",Toast.LENGTH_LONG).show();
@@ -96,12 +96,12 @@ public class Mark_attendance extends AppCompatActivity {
 
         Log.d(TAG,"WiFi name:"+name );
 
-        local_DBR.child("Attendance_Register").child(formattedDate).addListenerForSingleValueEvent(new ValueEventListener() {
+        local_DBR.child(getString(R.string.Attendance_Register_Firebase_NodeKey)).child(formattedDate).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if(name.toUpperCase().equals("OC101")){
-                    local_DBR.child("Attendance_Register").child(formattedDate).child(UID).setValue("present");
+                    local_DBR.child(getString(R.string.Attendance_Register_Firebase_NodeKey)).child(formattedDate).child(UID).setValue("present");
                     Toast.makeText(Mark_attendance.this,"Attendance successfully marked",Toast.LENGTH_LONG).show();
                 }else if(!name.toUpperCase().equals("OC101")){
                     Toast.makeText(Mark_attendance.this,"Connect to OC101 to mark your attendacnce",Toast.LENGTH_LONG).show();
@@ -124,8 +124,8 @@ public class Mark_attendance extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //setting attendacne marking to one account
-                isOnline=dataSnapshot.child("Admin_List").child("online").getValue(Integer.class);
-                if(isOnline==1){
+                isOnline=dataSnapshot.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).getValue(Boolean.class);
+                if(isOnline){
                     isOn.setText("Mark your attendance now, connect to OC101 (PW: android) to mark your attendance");
                     isOn.setTextColor(Color.GREEN);
                 }else{

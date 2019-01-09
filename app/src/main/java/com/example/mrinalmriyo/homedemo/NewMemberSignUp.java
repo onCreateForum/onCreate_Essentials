@@ -43,6 +43,7 @@ public class NewMemberSignUp extends AppCompatActivity implements AdapterView.On
     EditText name_edit;
     EditText email_edit;
     EditText semester_edit;
+    EditText mobile_edit;
     TextView UID_disp;
     Button enter;
     Spinner spinner;
@@ -55,6 +56,7 @@ public class NewMemberSignUp extends AppCompatActivity implements AdapterView.On
     String raw_emailID;
     String name;
     String sem="0";
+    long mob_num = 0;
     boolean registrations_open =false;
     String stream="";
 
@@ -81,15 +83,16 @@ public class NewMemberSignUp extends AppCompatActivity implements AdapterView.On
                 })
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-        email_head = in.getStringExtra("regex_email");
-        raw_emailID = in.getStringExtra("user_email");
-        name = in.getStringExtra("name");
+        email_head = in.getStringExtra(getString(R.string.regex_email_intentkey));
+        raw_emailID = in.getStringExtra(getString(R.string.user_email_intentkey));
+        name = in.getStringExtra(getString(R.string.name_intentkey));
         mdbr = FirebaseDatabase.getInstance().getReference();
 
         name_edit = findViewById(R.id.name_edit);
         name_edit.setText(name);
         email_edit = findViewById(R.id.email_id_txt);
         email_edit.setText(raw_emailID);
+        mobile_edit = findViewById(R.id.mobile_number_edit);
         semester_edit = findViewById(R.id.sem_edit);
         enter = findViewById(R.id.submit);
         UID_disp = findViewById(R.id.UID_disp);
@@ -109,7 +112,7 @@ public class NewMemberSignUp extends AppCompatActivity implements AdapterView.On
         loc.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                registrations_open = dataSnapshot.child("Admin_List").child("membership_open").getValue(Boolean.class);
+                registrations_open = dataSnapshot.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.Membership_open_Firebase_NodeKey)).getValue(Boolean.class);
             }
 
             @Override
@@ -127,16 +130,18 @@ public class NewMemberSignUp extends AppCompatActivity implements AdapterView.On
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             sem = semester_edit.getText().toString();
+                            mob_num = Long.parseLong(mobile_edit.getText().toString());
                             Log.d(TAG, "Semester: " + sem);
                             if (Integer.parseInt(sem) <= 8 && Integer.parseInt(sem) > 0 && stream != "") {
 
                                 //uid = uidenter.getText().toString().toUpperCase();
-                                mdbr.child("Member_List").child(email_head).child("UID").setValue(randomUID);
-                                mdbr.child("Member_List").child(email_head).child("Name").setValue(name);
-                                mdbr.child("Member_List").child(email_head).child("Email").setValue(raw_emailID);
-                                mdbr.child("Member_List").child(email_head).child("Semester").setValue(sem);
-                                mdbr.child("Member_List").child(email_head).child("Stream").setValue(stream);
-                                Toast.makeText(NewMemberSignUp.this, "Registration successful", Toast.LENGTH_LONG).show();
+                                mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_head).child(getString(R.string.uid_Firebase_NodeKey)).setValue(randomUID);
+                                mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_head).child(getString(R.string.Name_Firebase_NodeKey)).setValue(name);
+                                mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_head).child(getString(R.string.Email_Firebase_NodeKey)).setValue(raw_emailID);
+                                mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_head).child(getString(R.string.Semester_Firebase_NodeKey)).setValue(sem);
+                                mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_head).child(getString(R.string.Mobile_Firebase_NodeKey)).setValue(mob_num);
+                                mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).child(email_head).child(getString(R.string.Stream_Firebase_NodeKey)).setValue(stream);
+                                Toast.makeText(NewMemberSignUp.this, "Registration successful , please sign-in to access the app", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(NewMemberSignUp.this,Login.class));
                                 finish();
                             } else {
@@ -168,11 +173,11 @@ public class NewMemberSignUp extends AppCompatActivity implements AdapterView.On
         int i1 = r.nextInt(999);
         String gen_UID = String.format("%03d", i1);
         randomUID = "OC"+year+""+month+gen_UID;
-        mdbr.child("Member_List").addListenerForSingleValueEvent(new ValueEventListener() {
+        mdbr.child(getString(R.string.Member_List_Firebase_NodeKey)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
-                    if(ds.child("UID").getValue(String.class)!=randomUID){
+                    if(ds.child(getString(R.string.uid_Firebase_NodeKey)).getValue(String.class)!=randomUID){
                         //Do nothing
                     }else{
                         generateRandom();
