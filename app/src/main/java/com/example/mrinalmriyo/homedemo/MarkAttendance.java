@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Built by Irfan
+ * Built by Irfan S
  *
  * Attendance marking page for all non-admin users. Requires connection to hotspot named OC101 and one of the admins to be online
  * for successful attendance marking.

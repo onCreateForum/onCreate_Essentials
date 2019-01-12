@@ -32,7 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 /**
- * Built by Irfan
+ * Built by Irfan S
  *
  * Login and Security page for the app, allows user to sign-in based on existing credentials.
  * Manages user auth and allows new users to sign up. Hub for all security activities.
