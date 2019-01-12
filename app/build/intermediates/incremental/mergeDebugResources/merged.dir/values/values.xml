@@ -1738,6 +1738,7 @@
     <string name="user_email_intentkey">user_email</string>
     <string name="user_uid_intentkey">user_uid</string>
     <string name="weekly_challenge">Weekly Challenge</string>
+    <string name="whatsapp_chat_url">https://chat.whatsapp.com/DOFMtSoZ1lxL8dXzZDdqrn</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

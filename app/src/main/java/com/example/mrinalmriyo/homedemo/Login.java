@@ -89,6 +89,7 @@ public class Login extends AppCompatActivity {
 
 
     private void signIn() {
+        Log.d(TAG,"Starting sign-in daemon..");
         showProgressDialog();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -98,18 +99,22 @@ public class Login extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Log.d(TAG,"Sign-in result obtained");
+
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            // Log.d(TAG,"Result:"+result.isSuccess());
+            Log.d(TAG,"Result:"+result.isSuccess());
             if (result.isSuccess()) {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
 
-            } else if (resultCode==12502) {
+            } else if (resultCode==12502 || !result.isSuccess()) {
+                hideProgressDialog();
                 Log.d(TAG,"Login failed due to "+result.getStatus());
-                Toast.makeText(getApplicationContext(), "Retrying login", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Unable to sign-in ,check your network connection and sign-in again", Toast.LENGTH_SHORT).show();
+                showUI();
                 // Google Sign In failed, update UI appropriately
                 // ...
             }
@@ -119,6 +124,7 @@ public class Login extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        Log.d(TAG,"Firing onStart()");
         FirebaseUser mUser = mAuth.getCurrentUser();
         OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(mGoogleApiClient);
         if (opr.isDone()) {

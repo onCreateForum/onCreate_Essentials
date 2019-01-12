@@ -2,37 +2,46 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="24"
-    build-mode="HOT_WARM"
+    build-mode="COLD"
     density="mdpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1547032084120"
+    timestamp="1547298311017"
     token="423643208556845205"
-    verifier="COMPATIBLE" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="382" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="22" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="36" />
+        duration="0" />
     <task
         name="verifier"
-        duration="5" />
+        duration="0" />
 
     <artifact
-        location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1547030669064"
+        timestamp="1547297749307"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+        <artifact
+            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -41,46 +50,13 @@
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-        <artifact
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="R_CLASS_CHANGE"
-        timestamp="1547031797415"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -91,32 +67,14 @@
         <artifact
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="FIELD_TYPE_CHANGE"
-        timestamp="1547031946537"
+        timestamp="1547298311017"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1547032084120"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="D:\onCreate()\Android Projects\HomeDemo\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

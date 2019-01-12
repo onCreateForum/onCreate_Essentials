@@ -3579,6 +3579,7 @@ public final class R {
     public static final int user_email_intentkey=0x7f0c0056;
     public static final int user_uid_intentkey=0x7f0c0057;
     public static final int weekly_challenge=0x7f0c0058;
+    public static final int whatsapp_chat_url=0x7f0c0059;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0d0000;

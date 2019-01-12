@@ -1086,6 +1086,7 @@ string uid_Firebase_NodeKey
 string user_email_intentkey
 string user_uid_intentkey
 string weekly_challenge
+string whatsapp_chat_url
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
