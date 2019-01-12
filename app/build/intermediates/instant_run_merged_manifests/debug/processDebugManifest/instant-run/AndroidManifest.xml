@@ -33,7 +33,7 @@
         <activity android:name="com.example.mrinalmriyo.homedemo.MemberManagement" />
         <activity android:name="com.example.mrinalmriyo.homedemo.Login" />
         <activity android:name="com.example.mrinalmriyo.homedemo.NewMemberSignUp" />
-        <activity android:name="com.example.mrinalmriyo.homedemo.Mark_attendance" />
+        <activity android:name="com.example.mrinalmriyo.homedemo.MarkAttendance" />
         <activity
             android:name="com.example.mrinalmriyo.homedemo.Sessions"
             android:label="Events" />

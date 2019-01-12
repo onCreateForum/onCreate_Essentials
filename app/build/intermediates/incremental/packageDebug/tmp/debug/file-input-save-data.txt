@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Jan 12 18:43:52 IST 2019
+#Sat Jan 12 19:41:31 IST 2019
 2.base=D\:\\onCreate()\\Android Projects\\HomeDemo\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\0
 5.set=DEX
 0.path=lib/arm64-v8a/libpl_droidsonroids_gif.so

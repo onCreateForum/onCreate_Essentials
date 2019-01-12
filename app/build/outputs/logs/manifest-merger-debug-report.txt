@@ -200,10 +200,10 @@ activity#com.example.mrinalmriyo.homedemo.NewMemberSignUp
 ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:21:9-52
 	android:name
 		ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:21:19-50
-activity#com.example.mrinalmriyo.homedemo.Mark_attendance
-ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:22:9-52
+activity#com.example.mrinalmriyo.homedemo.MarkAttendance
+ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:22:9-51
 	android:name
-		ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:22:19-50
+		ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:22:19-49
 activity#com.example.mrinalmriyo.homedemo.Sessions
 ADDED from D:\onCreate()\Android Projects\HomeDemo\app\src\main\AndroidManifest.xml:23:9-25:38
 	android:label

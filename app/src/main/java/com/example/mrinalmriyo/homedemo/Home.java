@@ -156,11 +156,13 @@ public class Home extends AppCompatActivity {
                     public void onClick(View view) {
                         if(dataSnapshot.child(getString(R.string.Admin_List_Firebase_NodeKey)).hasChild(UID)) {
 
+                            Log.d(TAG,"Launching Admin Attendance");
+
                             Intent intent = new Intent(Home.this, AttendanceFirstPage.class);
                             intent.putExtra(getString(R.string.user_uid_intentkey),UID);
                             startActivity(intent);
                         }else{
-                            Intent intent = new Intent(Home.this,Mark_attendance.class);
+                            Intent intent = new Intent(Home.this,MarkAttendance.class);
                             intent.putExtra(getString(R.string.user_uid_intentkey),UID);
                             startActivity(intent);
                             //Toast.makeText(Home.this,"Admin only feature",Toast.LENGTH_LONG).show();

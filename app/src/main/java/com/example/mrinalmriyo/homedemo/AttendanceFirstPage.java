@@ -31,7 +31,9 @@ public class AttendanceFirstPage extends AppCompatActivity {
     TextView registration_status;
     final String TAG = "A1P_tag";
     String UID;
+
     boolean isOpen;
+    boolean isAttendanceLive = false;
 
 
     DatabaseReference loc;
@@ -63,10 +65,9 @@ public class AttendanceFirstPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_first_page);
 
+        Log.d(TAG,"Admin Attendance started");
 
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        loc = FirebaseDatabase.getInstance().getReference();
-        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(true);
 
 
 
@@ -85,6 +86,9 @@ public class AttendanceFirstPage extends AppCompatActivity {
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
+        loc = FirebaseDatabase.getInstance().getReference();
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(true);
+
         registration_status = findViewById(R.id.reg_status_disp);
         attendance = findViewById(R.id.attendance_disp);
 
@@ -98,9 +102,10 @@ public class AttendanceFirstPage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 isOpen = dataSnapshot.child(getString(R.string.Membership_open_Firebase_NodeKey)).getValue(Boolean.class);
+                isAttendanceLive = dataSnapshot.child(getString(R.string.online_Firebase_NodeKey)).getValue(Boolean.class);
 
 
-                if(dataSnapshot.child(getString(R.string.online_Firebase_NodeKey)).getValue(Boolean.class)){
+                if(isAttendanceLive){
                     attendance.setText("Attendance marking is live, set your hotspot to OC101");
                 }else{
                     attendance.setText("Attendance not live");
@@ -119,21 +124,15 @@ public class AttendanceFirstPage extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-    @Override
     protected void onPause(){
         super.onPause();
-        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(0);
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(false);
         finish();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(0);
+        loc.child(getString(R.string.Admin_List_Firebase_NodeKey)).child(getString(R.string.online_Firebase_NodeKey)).setValue(false);
     }
 }

@@ -35,7 +35,7 @@ import java.util.Date;
  *
  */
 
-public class Mark_attendance extends AppCompatActivity {
+public class MarkAttendance extends AppCompatActivity {
 
     final String TAG = "OC_MarkAttendance";
     DatabaseReference local_DBR;
@@ -74,7 +74,7 @@ public class Mark_attendance extends AppCompatActivity {
                 if(isOnline){
                     markPresent();
                 }else{
-                    Toast.makeText(Mark_attendance.this,"Attendance marking not live , pls wait ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MarkAttendance.this,"Attendance marking not live , pls wait ",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -102,12 +102,12 @@ public class Mark_attendance extends AppCompatActivity {
 
                 if(name.toUpperCase().equals("OC101")){
                     local_DBR.child(getString(R.string.Attendance_Register_Firebase_NodeKey)).child(formattedDate).child(UID).setValue("present");
-                    Toast.makeText(Mark_attendance.this,"Attendance successfully marked",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MarkAttendance.this,"Attendance successfully marked",Toast.LENGTH_LONG).show();
                 }else if(!name.toUpperCase().equals("OC101")){
-                    Toast.makeText(Mark_attendance.this,"Connect to OC101 to mark your attendacnce",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MarkAttendance.this,"Connect to OC101 to mark your attendacnce",Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(Mark_attendance.this,"Your attendance has been marked for today",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MarkAttendance.this,"Your attendance has been marked for today",Toast.LENGTH_LONG).show();
                 }
 
             }
