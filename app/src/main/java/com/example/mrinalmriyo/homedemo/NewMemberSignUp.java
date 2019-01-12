@@ -32,7 +32,7 @@ import java.util.Random;
 /**
  * Built by Irfan S
  *
- * Temporary data entry page for existing onCreate members.
+ * New member sign-up page, allows user sign ups when registrations are open. Detects registration openings from Firebase.
  *
  *
  */
