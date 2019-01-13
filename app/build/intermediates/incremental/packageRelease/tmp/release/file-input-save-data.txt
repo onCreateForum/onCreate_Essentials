@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jan 13 14:38:19 IST 2019
+#Sun Jan 13 14:50:15 IST 2019
 2.base=D\:\\onCreate()\\Android Projects\\HomeDemo\\app\\build\\intermediates\\transforms\\mergeJniLibs\\release\\0
 5.set=NATIVE_RESOURCE
 0.path=lib/armeabi/libpl_droidsonroids_gif.so

@@ -113,7 +113,7 @@ public class Login extends AppCompatActivity {
             } else if (resultCode==12502 || !result.isSuccess()) {
                 hideProgressDialog();
                 Log.d(TAG,"Login failed due to "+result.getStatus());
-                Toast.makeText(getApplicationContext(), "Unable to sign-in ,check your network connection and sign-in again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Unable to sign-in ,check your network connection and sign-in again ", Toast.LENGTH_SHORT).show();
                 showUI();
                 // Google Sign In failed, update UI appropriately
                 // ...
@@ -140,6 +140,7 @@ public class Login extends AppCompatActivity {
                 //signInButton.setVisibility(View.VISIBLE);
                 signIn();
             } else {
+                hideProgressDialog();
                 signInButton.setVisibility(View.VISIBLE);
                 signInButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -174,7 +175,6 @@ public class Login extends AppCompatActivity {
                         //dialog.dismiss();
                         if(task.isSuccessful()) {
 
-                            hideProgressDialog();
                             final FirebaseUser user = mAuth.getCurrentUser();
                             //Replacing invalid chars for database addition
                             final String raw_email = user.getEmail();
@@ -189,6 +189,7 @@ public class Login extends AppCompatActivity {
                                 in.putExtra(getString(R.string.regex_email_intentkey),email);
                                 in.putExtra(getString(R.string.name_intentkey),name);
 
+                                hideProgressDialog();
                                 startActivity(in);
                                 finish();
                             } else {
@@ -208,11 +209,13 @@ public class Login extends AppCompatActivity {
                                             in.putExtra(getString(R.string.name_intentkey),name);
                                             in.putExtra(getString(R.string.regex_email_intentkey),email);
 
+                                            hideProgressDialog();
                                             startActivity(in);
                                             finish();
                                         }else{
                                             Toast.makeText(Login.this,"Details not found, please log in again.",Toast.LENGTH_LONG).show();
                                             user.delete();
+                                            hideProgressDialog();
                                             showUI();
                                             Log.d(TAG,"User deleted from database due to inconsistent details");
                                         }
@@ -233,6 +236,7 @@ public class Login extends AppCompatActivity {
                             // signed in user can be handled in the listener.
                         }
                         else if (!task.isSuccessful()) {
+                            hideProgressDialog();
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Toast.makeText(Login.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
