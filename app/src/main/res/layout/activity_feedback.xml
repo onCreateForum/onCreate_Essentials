@@ -189,7 +189,7 @@ for all the members associated"/>
                     android:gravity="left"
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold"
-                    android:text="B K Karthik\n[Media Manager]\nCSE 1st Sem"/>
+                    android:text="B K Karthik\n[Media Manager]\nECE 1st Sem"/>
 
             </LinearLayout>
 

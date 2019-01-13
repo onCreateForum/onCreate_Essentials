@@ -716,6 +716,12 @@ drawable ic_playlist_add_check_black_24dp
 drawable ic_search_black_24dp
 drawable icon
 drawable icon_launch
+drawable image1
+drawable image2
+drawable image3
+drawable image4
+drawable image5
+drawable image6
 drawable irfan
 drawable karthik
 drawable mrinal
@@ -833,6 +839,7 @@ id linearLayoutEvents
 id listMode
 id listView1
 id list_item
+id main_img
 id media_actions
 id member_listview
 id membersAttendedListView

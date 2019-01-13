@@ -6,9 +6,14 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,6 +35,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 /**
  * Built by Irfan S
@@ -37,6 +43,7 @@ import com.google.firebase.database.ValueEventListener;
  * Login and Security page for the app, allows user to sign-in based on existing credentials.
  * Manages user auth and allows new users to sign up. Hub for all security activities.
  *
+ * Uses Picasso for efficient image loading.
  */
 
 public class Login extends AppCompatActivity {
@@ -45,6 +52,8 @@ public class Login extends AppCompatActivity {
     SignInButton signInButton;
     ProgressDialog mProgressDialog;
     GoogleApiClient mGoogleApiClient;
+    ViewFlipper viewFlipper;
+    ImageView mainDisp;
 
     boolean newUser;
     private DatabaseReference local_DBR;
@@ -59,6 +68,26 @@ public class Login extends AppCompatActivity {
 
         setContentView(R.layout.userauth_screen);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        mainDisp = findViewById(R.id.main_img);
+        Picasso.get().load(R.drawable.icon_launch).resize(600,600).into(mainDisp);
+        mainDisp.setVisibility(View.VISIBLE);
+
+        //TODO implement local caching of images for ViewFlipper implementation.
+
+//        int images[]={R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4,
+//        R.drawable.image5, R.drawable.image6};
+//        viewFlipper=findViewById(R.id.viewFlipper);
+//        for(int i=0; i<images.length; i++)
+//        {
+//            flipperImages(images[i]);
+//        }
+//        viewFlipper.setFlipInterval(4000);
+//        viewFlipper.setAutoStart(true);
+//        Animation in=AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left);
+//        viewFlipper.setInAnimation(in);
+//        in=AnimationUtils.loadAnimation(this,android.R.anim.slide_out_right);
+//        viewFlipper.setOutAnimation(in);
 
         signInButton = findViewById(R.id.sign_in_button);
         signInButton.setVisibility(View.INVISIBLE);
@@ -87,6 +116,18 @@ public class Login extends AppCompatActivity {
 
     }
 
+//public void flipperImages(int image)
+//    {
+//        ImageView imageView=new ImageView(this);
+//        imageView.setBackgroundResource(image);
+//        viewFlipper.addView(imageView);
+//        viewFlipper.setFlipInterval(4000);
+//        viewFlipper.setAutoStart(true);
+//        Animation in=AnimationUtils.loadAnimation(this,android.R.anim.slide_in_left);
+//        viewFlipper.setInAnimation(in);
+//        in=AnimationUtils.loadAnimation(this,android.R.anim.slide_out_right);
+//        viewFlipper.setOutAnimation(in);
+//    }
 
     private void signIn() {
         Log.d(TAG,"Starting sign-in daemon..");
@@ -113,7 +154,7 @@ public class Login extends AppCompatActivity {
             } else if (resultCode==12502 || !result.isSuccess()) {
                 hideProgressDialog();
                 Log.d(TAG,"Login failed due to "+result.getStatus());
-                Toast.makeText(getApplicationContext(), "Unable to sign-in ,check your network connection and sign-in again ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Unable to sign-in ,check your network connection and sign-in again", Toast.LENGTH_SHORT).show();
                 showUI();
                 // Google Sign In failed, update UI appropriately
                 // ...

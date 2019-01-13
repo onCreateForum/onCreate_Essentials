@@ -14,6 +14,7 @@ MERGED from [pl.droidsonroids.gif:android-gif-drawable:1.2.15] C:\Users\AndroidD
 MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\64e51e05e5a84542e65c9f4200749d90\AndroidManifest.xml:17:1-28:12
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\a75f70b87bdf9f36444f3aaa2e6fb0c9\AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.5.aar\9b6ed6252dfc2b7bf4837a5de6c96f67\AndroidManifest.xml:15:1-25:12
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\1207ab881091df318eceecef13ed1185\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\77c7a020a14d2bb6c206688e01d5f8e6\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-flags-16.0.1.aar\8c27799418d9fa858cd4dfa4108fc56b\AndroidManifest.xml:17:1-22:12
@@ -51,6 +52,7 @@ MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\AndroidDev
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\a0df5c03afd609a2a38ea8596a565e07\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e675afe794d2feb3439660f97ce82131\AndroidManifest.xml:17:1-25:12
 MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\0460aa844c1606b6f2ae54b276ac3f4c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\31c19a796eebf5f3fd300654d23b7719\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\00a1cc90c208a1400d1bd797eedecf3f\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\9b486b6dd6303fe7c09ac17a95f90697\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\38bce78b7e7a3cbc8b43af19d6bf66cf\AndroidManifest.xml:17:1-22:12
@@ -128,6 +130,8 @@ MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\AndroidDe
 MERGED from [com.google.android.gms:play-services-gcm:16.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-gcm-16.0.0.aar\64e51e05e5a84542e65c9f4200749d90\AndroidManifest.xml:26:5-20
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\a75f70b87bdf9f36444f3aaa2e6fb0c9\AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\a75f70b87bdf9f36444f3aaa2e6fb0c9\AndroidManifest.xml:22:5-37:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:7:5-12:19
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:7:5-12:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.1.aar\b692e5b42dc622e56a1984d2469458ea\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-16.0.1.aar\b692e5b42dc622e56a1984d2469458ea\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-iid:16.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-iid-16.0.0.aar\9167206e3e3dac88c1ebb30355f69fcc\AndroidManifest.xml:26:5-20
@@ -290,6 +294,8 @@ MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidD
 MERGED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\a75f70b87bdf9f36444f3aaa2e6fb0c9\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.5.aar\9b6ed6252dfc2b7bf4837a5de6c96f67\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-database:16.0.5] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-database-16.0.5.aar\9b6ed6252dfc2b7bf4837a5de6c96f67\AndroidManifest.xml:18:5-20:41
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:5:5-44
+MERGED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\1207ab881091df318eceecef13ed1185\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\1207ab881091df318eceecef13ed1185\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\77c7a020a14d2bb6c206688e01d5f8e6\AndroidManifest.xml:20:5-44
@@ -364,6 +370,8 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\AndroidDev
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\e675afe794d2feb3439660f97ce82131\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\0460aa844c1606b6f2ae54b276ac3f4c\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\0460aa844c1606b6f2ae54b276ac3f4c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\31c19a796eebf5f3fd300654d23b7719\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.0] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.0.aar\31c19a796eebf5f3fd300654d23b7719\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\00a1cc90c208a1400d1bd797eedecf3f\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\00a1cc90c208a1400d1bd797eedecf3f\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\9b486b6dd6303fe7c09ac17a95f90697\AndroidManifest.xml:20:5-44
@@ -460,6 +468,14 @@ ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDe
 		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\a75f70b87bdf9f36444f3aaa2e6fb0c9\AndroidManifest.xml:36:13-107
 	android:name
 		ADDED from [com.google.android.gms:play-services-auth:16.0.1] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\play-services-auth-16.0.1.aar\a75f70b87bdf9f36444f3aaa2e6fb0c9\AndroidManifest.xml:34:13-89
+provider#com.squareup.picasso.PicassoProvider
+ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:8:9-11:40
+	android:authorities
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [com.squareup.picasso:picasso:2.71828] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\picasso-2.71828.aar\a9e046af5c24cf7aa0e65eaca4a7237c\AndroidManifest.xml:9:13-64
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.firebase:firebase-measurement-connector-impl:17.0.4] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.4.aar\400d22b019419397f3726bb01b2c222e\AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-analytics:16.0.6] C:\Users\AndroidDev\.gradle\caches\transforms-1\files-1.1\firebase-analytics-16.0.6.aar\b909d41d5601db7169124b208ffb04b6\AndroidManifest.xml:25:5-68

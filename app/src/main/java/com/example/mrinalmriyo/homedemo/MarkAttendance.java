@@ -74,7 +74,7 @@ public class MarkAttendance extends AppCompatActivity {
                 if(isOnline){
                     markPresent();
                 }else{
-                    Toast.makeText(MarkAttendance.this,"Attendance marking not live , pls wait ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MarkAttendance.this,"Please wait!",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -129,7 +129,7 @@ public class MarkAttendance extends AppCompatActivity {
                     isOn.setText("Mark your attendance now, connect to OC101 (PW: android) to mark your attendance");
                     isOn.setTextColor(Color.GREEN);
                 }else{
-                    isOn.setText("Attendance marking disabled, wait for head to come online");
+                    isOn.setText("Attendance marking disabled,\nwait for head to come online");
                     isOn.setTextColor(Color.RED);
                 }
             }

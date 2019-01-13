@@ -106,9 +106,9 @@ public class AttendanceFirstPage extends AppCompatActivity {
 
 
                 if(isAttendanceLive){
-                    attendance.setText("Attendance marking is live, set your hotspot to OC101");
+                    attendance.setText("Mark your attendance now,\nset your hotspot to OC101");
                 }else{
-                    attendance.setText("Attendance not live");
+                    attendance.setText("Please wait!");
                 }
                 updateUI();
             }
