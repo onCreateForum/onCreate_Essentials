@@ -1,4 +1,7 @@
-#Sun Jan 13 14:50:15 IST 2019
+#Sun Jan 13 15:01:48 IST 2019
 base.0=D\:\\onCreate()\\Android Projects\\HomeDemo\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.1=classes.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=D\:\\onCreate()\\Android Projects\\HomeDemo\\app\\build\\intermediates\\transforms\\dexMerger\\release\\1
