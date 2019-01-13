@@ -182,6 +182,7 @@ public class Login extends AppCompatActivity {
                             final String raw_pic_url = user.getPhotoUrl().toString();
                             final String email = user.getEmail().replaceAll("[.,#_$]","!");
                             newUser = task.getResult().getAdditionalUserInfo().isNewUser();
+                            hideProgressDialog();
                             if (newUser) {
                                 Intent in = new Intent(Login.this,NewMemberSignUp.class);
 
@@ -189,7 +190,7 @@ public class Login extends AppCompatActivity {
                                 in.putExtra(getString(R.string.regex_email_intentkey),email);
                                 in.putExtra(getString(R.string.name_intentkey),name);
 
-                                hideProgressDialog();
+                                //hideProgressDialog();
                                 startActivity(in);
                                 finish();
                             } else {
@@ -209,13 +210,13 @@ public class Login extends AppCompatActivity {
                                             in.putExtra(getString(R.string.name_intentkey),name);
                                             in.putExtra(getString(R.string.regex_email_intentkey),email);
 
-                                            hideProgressDialog();
+                                           // hideProgressDialog();
                                             startActivity(in);
                                             finish();
                                         }else{
                                             Toast.makeText(Login.this,"Details not found, please log in again.",Toast.LENGTH_LONG).show();
                                             user.delete();
-                                            hideProgressDialog();
+                                           // hideProgressDialog();
                                             showUI();
                                             Log.d(TAG,"User deleted from database due to inconsistent details");
                                         }
