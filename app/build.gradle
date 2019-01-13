@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            keyPassword 'OC1001@19'
-            storeFile file('D:/onCreate()/Android Projects/HomeDemo.jks')
-            storePassword 'OC1001@19'
+            keyPassword '--'
+            storeFile file('--')
+            storePassword '--'
         }
     }
     compileSdkVersion 28
